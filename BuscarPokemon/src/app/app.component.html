@@ -1,0 +1,80 @@
+<main class="page">
+  <header class="header">
+    <span class="pokeball" aria-hidden="true"></span>
+    <h1 class="title">Pokédex</h1>
+    <p class="subtitle">Busca un Pokémon por su nombre o número</p>
+  </header>
+
+  <form class="search" (ngSubmit)="search()">
+    <label class="sr-only" for="pokemon-input">Nombre del Pokémon</label>
+    <input
+      id="pokemon-input"
+      class="search__input"
+      type="text"
+      name="query"
+      [(ngModel)]="query"
+      placeholder="Ej: pikachu, ditto, 25..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <button class="search__button" type="submit" [disabled]="loading">
+      {{ loading ? 'Buscando...' : 'Buscar' }}
+    </button>
+    <button
+      class="search__reset"
+      type="button"
+      (click)="reset()"
+      [disabled]="loading"
+      aria-label="Limpiar búsqueda"
+    >
+      Limpiar
+    </button>
+  </form>
+
+  <section class="results" aria-live="polite">
+    <div class="state state--loading" *ngIf="loading">
+      <span class="spinner" aria-hidden="true"></span>
+      <p>Cargando Pokémon...</p>
+    </div>
+
+    <div class="state state--error" *ngIf="error && !loading">
+      <p>{{ error }}</p>
+    </div>
+
+    <article class="card" *ngIf="pokemon && !loading && !error">
+      <div class="card__image-wrap">
+        <img
+          class="card__image"
+          [src]="pokemon.image"
+          [alt]="'Imagen de ' + pokemon.name"
+          crossorigin="anonymous"
+        />
+      </div>
+      <div class="card__info">
+        <span class="card__number">#{{ pokemon.id.toString().padStart(3, '0') }}</span>
+        <h2 class="card__name">{{ pokemon.name }}</h2>
+        <div class="card__types">
+          <span class="type-chip" *ngFor="let type of pokemon.types">{{ type }}</span>
+        </div>
+        <dl class="card__stats">
+          <div class="stat">
+            <dt>Altura</dt>
+            <dd>{{ pokemon.height / 10 }} m</dd>
+          </div>
+          <div class="stat">
+            <dt>Peso</dt>
+            <dd>{{ pokemon.weight / 10 }} kg</dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+
+    <div class="state state--empty" *ngIf="!pokemon && !loading && !error">
+      <p>Escribe un nombre y presiona <strong>Buscar</strong> para comenzar.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Datos proporcionados por la <a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a></p>
+  </footer>
+</main>
