@@ -49,7 +49,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "host": "0.0.0.0",
-            "port": 3000
+            "port": 3000,
+            "allowedHosts": [
+              "localhost",
+              "127.0.0.1",
+              "10.0.12.187",
+              "*.app.github.dev"
+            ]
           },
           "configurations": {
             "production": {
