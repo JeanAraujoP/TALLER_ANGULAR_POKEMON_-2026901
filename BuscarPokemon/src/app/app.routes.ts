@@ -7,4 +7,4 @@ export const routes: Routes = [
   { path: 'registro', component: RegistroUsuario },
   { path: 'buscador', component: BuscadorPokemon },
   { path: '**', redirectTo: 'registro' }
-];
+];  
