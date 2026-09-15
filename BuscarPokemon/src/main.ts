@@ -5,5 +5,5 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(withFetch())],
+  providers: [provideRouter(routes), provideHttpClient(withFetch())],
 }).catch((error) => console.error('[LeroLeroCandelero] Angular bootstrap failed:', error));

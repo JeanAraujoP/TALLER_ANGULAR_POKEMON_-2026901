@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './buscador-pokemon.component.html',
   styleUrl: './buscador-pokemon.component.css'
 })
-export class BuscadorPokemonComponent {
+export class BuscadorPokemon {
 
 }
