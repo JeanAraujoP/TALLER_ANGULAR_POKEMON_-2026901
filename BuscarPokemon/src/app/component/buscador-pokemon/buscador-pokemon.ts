@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-buscador-pokemon',
   standalone: true,
   imports: [],
-  templateUrl: './buscador-pokemon.component.html',
-  styleUrl: './buscador-pokemon.component.css'
+  templateUrl: './buscador-pokemon.html',
+  styleUrl: './buscador-pokemon.css'
 })
 export class BuscadorPokemon {
 
