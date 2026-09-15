@@ -1,0 +1,35 @@
+<header>
+  <h1> {{ titulo }} </h1>
+
+  <nav>
+    <a routerLink="/registro" routerLinkActive="active-tab">
+      Registro Usuario
+    </a>
+    <a routerLink="/buscador" routerLinkActive="active-tab">
+      Buscador Pokemon
+    </a>
+    <a routerLink="/pikachu" routerLinkActive="active-tab">
+      Pikachu
+    </a>
+    <a routerLink="/bulbasaur" routerLinkActive="active-tab">
+      Bulbasaur
+    </a>
+    <a routerLink="/charmander" routerLinkActive="active-tab">
+      Charmander
+    </a>
+    <a routerLink="/squirtle" routerLinkActive="active-tab">
+      Squirtle
+    </a>
+    <a routerLink="/arceus" routerLinkActive="active-tab">
+      Arceus
+    </a>
+    <a routerLink="/eevee" routerLinkActive="active-tab">
+      Eevee
+    </a>
+  </nav>
+
+  <main> 
+    <router-outlet></router-outlet>
+  </main>
+
+</header>

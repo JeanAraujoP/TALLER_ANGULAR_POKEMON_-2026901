@@ -1,0 +1,26 @@
+.pokemon-card h2 {
+  cursor: pointer;
+  display: inline-block;
+  color: #e3350d;
+  text-decoration: underline;
+}
+
+.pokemon-card h2:hover {
+  opacity: 0.8;
+}
+
+.pokemon-card .hint {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  margin-top: 0;
+}
+
+.pokemon-card img {
+  width: 150px;
+  height: 150px;
+}
+
+.pokemon-card .stats {
+  list-style: none;
+  padding: 0;
+}

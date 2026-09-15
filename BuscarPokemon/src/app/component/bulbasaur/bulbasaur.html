@@ -1,0 +1,31 @@
+<div class="pokemon-card">
+  <h2 (click)="onClick()" title="Haz clic para ver detalles">Bulbasaur</h2>
+  <p class="hint" *ngIf="!mostrarNombre">(haz clic en el nombre para ver la imagen y las estadisticas)</p>
+
+  <div *ngIf="mostrarNombre">
+    <p>{{ nombre }}</p>
+
+    <p *ngIf="cargando">Cargando...</p>
+    <p *ngIf="errorDatos">No se pudo conectar con la PokeAPI. Verifica tu conexion a internet.</p>
+
+    <div *ngIf="datos">
+      <img
+        *ngIf="!errorImagen"
+        [src]="obtenerImagen()"
+        [alt]="nombre"
+        width="150"
+        height="150"
+        (error)="onImageError()"
+      />
+      <p *ngIf="errorImagen">No se pudo cargar la imagen del Pokemon.</p>
+
+      <ul class="stats">
+        <li>Altura: {{ obtenerAltura() }} m</li>
+        <li>Peso: {{ obtenerPeso() }} kg</li>
+        <li *ngFor="let stat of datos.stats">
+          {{ stat.stat.name }}: {{ stat.base_stat }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
